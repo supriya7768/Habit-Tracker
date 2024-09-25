@@ -1,0 +1,257 @@
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
+    <link href="../img/logo.png" rel="icon">
+
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Create Habit</title>
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header id="header1">
+            <div class="image-text">
+                <span class="image">
+                    <img src="../img/logo.png" alt="">
+                </span>
+                <div class="text logo-text">
+                    <span class="name">Habit Tracker</span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <!-- <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li> -->
+
+                <ul class="menu-links">
+
+                    <li class="nav-link">
+                        <a href="./dashboard.html">
+                            <i class='bx bx-user-circle icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-wallet icon'></i>
+                            <span class="text nav-text">Set Targets</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-layer icon'></i>
+                            <span class="text nav-text">Create Habit</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="./history.html">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span class="text nav-text">History</span>
+                        </a>
+                    </li>
+
+                    <!-- <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-heart icon' ></i>
+                            <span class="text nav-text">Assignments</span>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+    <!-- ==========================form========================= -->
+
+    <section class="home">
+        <div>
+            <div class="container">
+                <header>Create habit</header>
+
+                <form action="#" id="registrationForm" autocomplete="off">
+                    <div class="form first">
+                        <div class="details personal">
+                            <span class="title">Habit Details</span>
+
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label>Habit Name</label>
+                                    <input id="batchname" type="text" placeholder="Enter habit name" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <label>Start Date</label>
+                                    <input id="sdate" type="date" placeholder="Enter birth date" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <label>End Date</label>
+                                    <input id="edate" type="date" placeholder="Enter birth date" required>
+                                </div>
+
+                                <div class="input-field hidden">
+                                    <label>Habit Days</label>
+                                    <select id="gen" required onchange="toggleCustomDays(this)">
+                                        <option disabled selected>Days you want to follow</option>
+                                        <option value="everyday">Everyday</option>
+                                        <option value="custom">Customize days</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Do At</label>
+                            <div class="options-group">
+                                <label class="option">
+                                    <input type="radio" name="doAt" value="morning">
+                                    <span>Morning</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="doAt" value="afternoon">
+                                    <span>Afternoon</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="doAt" value="evening">
+                                    <span>Evening</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="doAt" value="night">
+                                    <span>Night</span>
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="details ID">
+                            <span class="title">Tracking Details</span>
+
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label>Track In</label>
+                                    <select id="trackIn">
+                                        <option value="duration">Duration</option>
+                                        <option value="steps">Steps</option>
+                                        <option value="litres">Litres</option>
+                                        <option value="cups">Cups</option>
+                                        <!-- Add other options as needed -->
+                                    </select>
+                                </div>
+
+                                <div class="input-field">
+                                    <label>Reminder</label>
+                                    <div class="radio-buttons">
+                                        <label>
+                                            <input type="radio" name="reminder" value="yes"> <span>Yes</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="reminder" value="no"> <span>No</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <button onclick="createBatch()">
+                                <span class="btnText">Create Batch</span>
+                                <i class="uil uil-navigator"></i>
+                            </button>
+
+                        </div>
+                    </div>
+            </div>
+            </form>
+        </div>
+        <div class="new">
+            <h1 id="dt"></h1>
+        </div>
+        </div>
+    </section>
+
+    <!-- Pop-up Window -->
+    <div id="popup" class="popup-overlay hidden">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>Select Days or Months</h2>
+
+            <div class="popup-section">
+                <h3>Select Days</h3>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="sunday"> Sunday</label>
+                    <label><input type="checkbox" value="monday"> Monday</label>
+                    <label><input type="checkbox" value="tuesday"> Tuesday</label>
+                    <label><input type="checkbox" value="wednesday"> Wednesday</label>
+                    <label><input type="checkbox" value="thursday"> Thursday</label>
+                    <label><input type="checkbox" value="friday"> Friday</label>
+                    <label><input type="checkbox" value="saturday"> Saturday</label>
+                </div>
+            </div>
+
+            <div class="popup-section">
+                <h3>Select Months</h3>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="january"> January</label>
+                    <label><input type="checkbox" value="february"> February</label>
+                    <label><input type="checkbox" value="march"> March</label>
+                    <label><input type="checkbox" value="april"> April</label>
+                    <label><input type="checkbox" value="may"> May</label>
+                    <label><input type="checkbox" value="june"> June</label>
+                    <label><input type="checkbox" value="july"> July</label>
+                    <label><input type="checkbox" value="august"> August</label>
+                    <label><input type="checkbox" value="september"> September</label>
+                    <label><input type="checkbox" value="october"> October</label>
+                    <label><input type="checkbox" value="november"> November</label>
+                    <label><input type="checkbox" value="december"> December</label>
+                </div>
+            </div>
+            <button onclick="saveSelection()">Save</button>
+        </div>
+    </div>
+
+    <script src="/./Habit-Tracker UI/jquery.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

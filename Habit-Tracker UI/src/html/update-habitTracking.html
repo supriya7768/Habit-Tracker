@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Habit Tracker</title>
+    <link rel="shortcut icon" type="image/png" href="../assets/images/logos/seodashlogo.png" />
+    <link rel="stylesheet" href="../assets/css/styles.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Additional styling for target info */
+
+
+        .time-text {
+            color: orange;
+            /* Green color for Time */
+        }
+
+        .track-text {
+            color: black;
+            /* Default black color for Track */
+        }
+
+        .value-text {
+            color: orange;
+            /* Blue color for Value */
+        }
+    </style>
+</head>
+
+<body>
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+
+
+        <!-- Do At Section -->
+
+        <div class="habit-sections">
+            <!-- Morning Section -->
+            <div id="morningSection" class="col-lg-14">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="button-group">
+                                <img src="../assets/images/logos/morning.png" alt="" style="width: 70px; height: 70px;">
+                                <button type="button" id="morning" class="btn btn-outline-danger m-1"
+                                    onclick="toggleOption(this, 'Morning')">Morning</button>
+                            </div>
+                            <input type="hidden" id="doAt" name="doAt">
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table text-nowrap align-middle mb-0">
+                                <thead>
+                                    <tr class="border-2 border-bottom border-primary border-0">
+                                        <th scope="col" class="ps-0">Habit Name</th>
+                                        <th scope="col" class="text-center">Tracking</th>
+                                        <th scope="col" class="text-center">Status</th>
+                                        <th scope="col" class="text-center">Save</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="morningHabitsBody" class="table-group-divider">
+                                    <!-- Morning habits will be inserted here dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Afternoon Section -->
+        <div id="afternoonSection" class="col-lg-14">
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <div class="button-group">
+                            <img src="../assets/images/logos/afternoon.png" alt="" style="width: 70px; height: 70px;">
+                            <button type="button" id="afternoon" class="btn btn-outline-danger m-1"
+                                onclick="toggleOption(this, 'Afternoon')">Afternoon</button>
+                        </div>
+                        <input type="hidden" id="doAt" name="doAt">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-nowrap align-middle mb-0">
+                            <thead>
+                                <tr class="border-2 border-bottom border-primary border-0">
+                                    <th scope="col" class="ps-0">Habit Name</th>
+                                    <th scope="col" class="text-center">Tracking</th>
+                                    <th scope="col" class="text-center">Status</th>
+                                    <th scope="col" class="text-center">Save</th>
+                                </tr>
+                            </thead>
+                            <tbody id="afternoonHabitsBody" class="table-group-divider">
+                                <!-- Afternoon habits will be inserted here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evening Section -->
+        <div id="eveningSection" class="col-lg-14">
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <div class="button-group">
+                            <img src="../assets/images/logos/evening.png" alt="" style="width: 70px; height: 70px;">
+                            <button type="button" id="evening" class="btn btn-outline-danger m-1"
+                                onclick="toggleOption(this, 'Evening')">Evening</button>
+                        </div>
+                        <input type="hidden" id="doAt" name="doAt">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-nowrap align-middle mb-0">
+                            <thead>
+                                <tr class="border-2 border-bottom border-primary border-0">
+                                    <th scope="col" class="ps-0">Habit Name</th>
+                                    <th scope="col" class="text-center">Tracking</th>
+                                    <th scope="col" class="text-center">Status</th>
+                                    <th scope="col" class="text-center">Save</th>
+                                </tr>
+                            </thead>
+                            <tbody id="eveningHabitsBody" class="table-group-divider">
+                                <!-- Evening habits will be inserted here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Night Section -->
+        <div id="nightSection" class="col-lg-14">
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <div class="button-group">
+                            <img src="../assets/images/logos/night.png" alt="" style="width: 70px; height: 70px;">
+                            <button type="button" id="night" class="btn btn-outline-danger m-1"
+                                onclick="toggleOption(this, 'Night')">Night</button>
+                        </div>
+                        <input type="hidden" id="doAt" name="doAt">
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table text-nowrap align-middle mb-0">
+                            <thead>
+                                <tr class="border-2 border-bottom border-primary border-0">
+                                    <th scope="col" class="ps-0">Habit Name</th>
+                                    <th scope="col" class="text-center">Tracking</th>
+                                    <th scope="col" class="text-center">Status</th>
+                                    <th scope="col" class="text-center">Save</th>
+                                </tr>
+                            </thead>
+                            <tbody id="nightHabitsBody" class="table-group-divider">
+                                <!-- Night habits will be inserted here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Get the date from the URL parameter or use the current date
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const selectedDate = urlParams.get('date') || new Date().toISOString().split('T')[0];
+
+                    // Fetch habit tracking data for the selected date
+                    fetch(`http://localhost:8080/api/habitTracking/byDate?date=${selectedDate}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (Array.isArray(data)) {
+                                populateHabits(data);
+                            } else {
+                                console.error("Expected an array, but got:", data);
+                            }
+                        })
+                        .catch(error => console.error('Error fetching habits:', error));
+
+                    function populateHabits(habits) {
+                        const sections = {
+                            MORNING: document.getElementById("morningHabitsBody"),
+                            AFTERNOON: document.getElementById("afternoonHabitsBody"),
+                            EVENING: document.getElementById("eveningHabitsBody"),
+                            NIGHT: document.getElementById("nightHabitsBody")
+                        };
+
+                        // Clear previous table content
+                        Object.values(sections).forEach(section => {
+                            section.innerHTML = "<tr><td colspan='3' class='text-center'>No habits to display</td></tr>";
+                        });
+
+                        habits.forEach(habitTracking => {
+                            if (!habitTracking.habit || !Array.isArray(habitTracking.habit.doAt)) {
+                                return; // Skip if doAt is missing or not an array
+                            }
+
+                            const doAtTimes = habitTracking.habit.doAt.map(time => time.trim().toUpperCase());
+
+                            doAtTimes.forEach(doAt => {
+                                if (sections[doAt]) {
+                                    const sectionBody = sections[doAt];
+                                    if (sectionBody.innerHTML.includes("No habits to display")) {
+                                        sectionBody.innerHTML = "";
+                                    }
+                                    const row = createHabitRow(habitTracking);
+                                    sectionBody.appendChild(row);
+                                }
+                            });
+                        });
+                    }
+
+                    function createHabitRow(habitTracking) {
+                        const row = document.createElement("tr");
+                        row.setAttribute("data-habit-id", habitTracking.habit.habitId);
+
+                        // Habit Name Column
+                        const habitNameCell = document.createElement("td");
+                        habitNameCell.innerHTML = `
+              <div class="d-flex align-items-center gap-2">
+                <span style="font-size: 18px; font-weight: bold;">${habitTracking.habit.habitName}</span>
+              </div>
+            `;
+                        row.appendChild(habitNameCell);
+
+                        // Tracking Column
+                        const trackingCell = document.createElement("td");
+                        trackingCell.className = "text-align-right";
+
+                        // Target info
+                        const targetContainer = document.createElement("div");
+                        targetContainer.className = "target-container mb-2 d-block";
+                        const targetIcon = document.createElement("img");
+                        targetIcon.src = "../assets/images/logos/target.png";
+                        targetIcon.alt = "Target Icon";
+                        targetIcon.className = "target-icon";
+                        targetIcon.style = "display: inline-block; width: 3%; margin-right: 10px; vertical-align: middle;";
+                        targetContainer.appendChild(targetIcon);
+
+                        let targetInfo = [];
+                        if (habitTracking.habit.time) {
+                            targetInfo.push(`<span class="label-text">Time:</span> <span class="time-text"> ${habitTracking.habit.time}</span>`);
+                        }
+                        if (habitTracking.habit.trackIn) {
+                            if (habitTracking.habit.trackIn === "Duration") {
+                                const durationText = `<span class="track-text">Duration:</span>`;
+                                const hoursText = habitTracking.habit.hours ? `<span class="value-text"> ${habitTracking.habit.hours} hrs</span>` : '';
+                                const minutesText = habitTracking.habit.minutes ? `<span class="value-text"> ${habitTracking.habit.minutes} mins</span>` : '';
+                                const durationInfo = `${durationText} ${hoursText}${hoursText && minutesText ? ' ' : ''}${minutesText}`.trim();
+                                targetInfo.push(durationInfo);
+                            } else {
+                                targetInfo.push(`<span class="track-text">${habitTracking.habit.trackIn}</span>`);
+                            }
+                        }
+                        if (habitTracking.habit.value) {
+                            targetInfo.push(`<span class="value-text">${habitTracking.habit.value}</span>`);
+                        }
+
+                        const targetInfoSpan = document.createElement("span");
+                        targetInfoSpan.className = "target-info";
+                        targetInfoSpan.innerHTML = targetInfo.join(' | ');
+                        targetInfoSpan.style = "font-size: 14px;";
+                        targetContainer.appendChild(targetInfoSpan);
+                        trackingCell.appendChild(targetContainer);
+
+                        // Dynamic input fields based on target info
+                        const hasTime = habitTracking.habit.time;
+                        const hasTrackIn = habitTracking.habit.trackIn;
+                        const hasDuration = habitTracking.habit.trackIn === "Duration";
+                        const hasValue = habitTracking.habit.value;
+
+                        if (hasTime) {
+                            const timeInputBox = document.createElement("input");
+                            timeInputBox.type = "time";
+                            timeInputBox.className = "form-control form-control-sm mb-2";
+                            timeInputBox.style = "display: inline-block; width: 21%; margin-right: 8px; font-size: 15px;";
+                            timeInputBox.value = habitTracking.statusTime || "";
+                            timeInputBox.id = `time-input-${habitTracking.habit.habitId}`;
+                            trackingCell.appendChild(timeInputBox);
+                        }
+
+                        if (hasTrackIn && !hasDuration) {
+                            const inputBox = document.createElement("input");
+                            inputBox.type = "number";
+                            inputBox.className = "form-control form-control-sm mb-2";
+                            inputBox.placeholder = "Enter value";
+                            inputBox.style = "display: inline-block; width: 19%; margin-right: 15px; font-size: 15px;";
+                            inputBox.value = habitTracking.statusValue || "";
+                            trackingCell.appendChild(inputBox);
+                        }
+
+                        if (hasDuration) {
+                            const hoursInput = document.createElement("input");
+                            hoursInput.type = "number";
+                            hoursInput.className = "form-control form-control-sm mb-2";
+                            hoursInput.placeholder = "Hours";
+                            hoursInput.style = "display: inline-block; width: 14%; margin-right: 8px; font-size: 15px;";
+                            hoursInput.value = habitTracking.statusHours || "";
+                            trackingCell.appendChild(hoursInput);
+
+                            const minutesInput = document.createElement("input");
+                            minutesInput.type = "number";
+                            minutesInput.className = "form-control form-control-sm mb-2";
+                            minutesInput.placeholder = "Minutes";
+                            minutesInput.style = "display: inline-block; width: 17%; margin-right: 8px; font-size: 15px;";
+                            minutesInput.value = habitTracking.statusMinutes || "";
+                            trackingCell.appendChild(minutesInput);
+                        }
+
+                        const commentBox = document.createElement("input");
+                        commentBox.type = "text";
+                        commentBox.className = "form-control form-control-sm";
+                        commentBox.placeholder = "Add comments";
+                        commentBox.style = "display: inline-block; width: 35%; margin-right: 8px; font-size: 15px;";
+                        commentBox.value = habitTracking.comments || "";
+                        trackingCell.appendChild(commentBox);
+
+                        // Only show checkbox if time, trackIn, and value are all null
+                        if (!hasTime && !hasTrackIn && !hasValue) {
+                            const checkbox = document.createElement("input");
+                            checkbox.type = "checkbox";
+                            checkbox.className = "form-check-input mb-2";
+                            checkbox.style = "display: inline-block; margin-right: 12px; transform: scale(1.2);";
+                            checkbox.checked = habitTracking.statusTick || false;
+                            trackingCell.appendChild(checkbox);
+                        }
+
+                        row.appendChild(trackingCell);
+
+                        // Status Column
+                        const statusCell = document.createElement("td");
+                        statusCell.className = "text-center";
+                        const statusIcon = document.createElement("span");
+                        statusIcon.className = "status-icon";
+                        statusIcon.innerText = habitTracking.statusCompletion || "Pending";
+                        statusIcon.style.color = habitTracking.statusCompletion === "Done" ? "green" : "red";
+                        statusIcon.style.fontSize = "18px";
+                        statusCell.appendChild(statusIcon);
+                        row.appendChild(statusCell);
+
+                        // Save Button Column
+                        const saveCell = document.createElement("td");
+                        saveCell.className = "text-center";
+                        const saveButton = document.createElement("button");
+                        saveButton.className = "btn btn-primary btn-lg";
+                        saveButton.style.fontSize = "16px";
+                        saveButton.textContent = "Save";
+                        saveButton.disabled = true; // Initially disable the save button
+                        saveButton.style.opacity = "0.5"; // Make it lighter when disabled
+
+                        saveButton.onclick = function () {
+                            if (!saveButton.disabled) {
+                                const habitId = row.getAttribute("data-habit-id");
+                                const statusValue = hasTrackIn && !hasDuration ? trackingCell.querySelector('input[type="number"]').value : null;
+                                const timeValue = hasTime ? trackingCell.querySelector('input[type="time"]').value : null;
+                                const hoursValue = hasDuration ? trackingCell.querySelector('input[placeholder="Hours"]').value : null;
+                                const minutesValue = hasDuration ? trackingCell.querySelector('input[placeholder="Minutes"]').value : null;
+                                const checkboxCompleted = !hasTime && !hasTrackIn && !hasValue ? trackingCell.querySelector('input[type="checkbox"]').checked : false;
+                                const comments = commentBox.value;
+
+                                // Calculate isCompleted using the updateStatus function
+                                let tempStatusIcon = { innerText: "", style: { color: "" } };
+                                updateStatus(habitTracking.habit, statusValue, timeValue, hoursValue, minutesValue, tempStatusIcon, { checked: checkboxCompleted });
+                                const isCompleted = tempStatusIcon.innerText === "Done";
+
+                                saveHabitTracking(habitId, statusValue, timeValue, hoursValue, minutesValue, isCompleted, comments);
+                                updateStatusIcon(statusIcon, habitTracking.habit, statusValue, timeValue, hoursValue, minutesValue, isCompleted);
+                            }
+                        };
+
+                        saveCell.appendChild(saveButton);
+                        row.appendChild(saveCell);
+
+                        // Add event listeners for real-time status updates
+                        const inputs = trackingCell.querySelectorAll('input');
+                        inputs.forEach(input => {
+                            input.addEventListener("input", function () {
+                                updateStatusListener.call(this);
+                                activateSaveButton();
+                            });
+                        });
+
+                        if (!hasTime && !hasTrackIn && !hasValue) {
+                            const checkbox = trackingCell.querySelector('input[type="checkbox"]');
+                            checkbox.addEventListener("change", function () {
+                                updateStatusListener.call(this);
+                                activateSaveButton();
+                            });
+                        }
+
+                        function activateSaveButton() {
+                            const hasInput = Array.from(inputs).some(input => {
+                                if (input.type === "checkbox") {
+                                    return input.checked;
+                                } else {
+                                    return input.value.trim() !== "";
+                                }
+                            });
+
+                            saveButton.disabled = !hasInput;
+                            saveButton.style.opacity = hasInput ? "1" : "0.5";
+                        }
+
+
+                        function updateStatusListener() {
+                            const habitId = this.closest('tr').getAttribute('data-habit-id');
+                            const statusValue = trackingCell.querySelector('input[type="number"]')?.value || null;
+                            const timeValue = document.getElementById(`time-input-${habitId}`)?.value || null;
+                            const hoursValue = trackingCell.querySelector('input[placeholder="Hours"]')?.value || null;
+                            const minutesValue = trackingCell.querySelector('input[placeholder="Minutes"]')?.value || null;
+                            const isCompleted = !hasTime && !hasTrackIn && !hasValue ? trackingCell.querySelector('input[type="checkbox"]').checked : false;
+
+                            console.log('Status Value:', statusValue);
+                            console.log('Time Value:', timeValue);
+                            console.log('Hours Value:', hoursValue);
+                            console.log('Minutes Value:', minutesValue);
+                            console.log('Is Completed:', isCompleted);
+
+                            updateStatus(habitTracking.habit, statusValue, timeValue, hoursValue, minutesValue, statusIcon, isCompleted);
+                        }
+
+
+                        return row;
+                    }
+                    function updateStatus(habit, enteredValue, enteredTime, enteredHours, enteredMinutes, statusIcon, checkbox) {
+                        const expectedValue = habit.value;
+                        const expectedTime = habit.time;
+                        const expectedDuration = habit.trackIn === "Duration" ? (parseInt(habit.hours || 0) * 60 + parseInt(habit.minutes || 0)) : null;
+
+                        let valueMatch = true;
+                        let timeMatch = true;
+                        let durationMatch = true;
+
+                        // Check value match
+                        if (expectedValue !== null && expectedValue !== undefined) {
+                            if (enteredValue === null || enteredValue === '') {
+                                valueMatch = false;
+                            } else {
+                                valueMatch = Math.abs(parseFloat(enteredValue) - parseFloat(expectedValue)) < 0.001;
+                            }
+                        }
+
+                        // Check time match
+                        if (expectedTime) {
+                            if (!enteredTime) {
+                                timeMatch = false;
+                            } else {
+                                timeMatch = normalizeTime(enteredTime) === normalizeTime(expectedTime);
+                            }
+                        }
+
+                        // Check duration match
+                        if (expectedDuration !== null) {
+                            if (!enteredHours && !enteredMinutes) {
+                                durationMatch = false;
+                            } else {
+                                const enteredDuration = parseInt(enteredHours || 0) * 60 + parseInt(enteredMinutes || 0);
+                                durationMatch = enteredDuration >= expectedDuration;
+                            }
+                        }
+
+                        // Determine if the habit is completed
+                        let isCompleted;
+                        if (habit.trackIn === "Duration") {
+                            isCompleted = durationMatch && (timeMatch || !expectedTime);
+                        } else if (expectedValue !== null && expectedValue !== undefined) {
+                            isCompleted = valueMatch && (timeMatch || !expectedTime);
+                        } else if (expectedTime) {
+                            isCompleted = timeMatch;
+                        } else {
+                            isCompleted = checkbox.checked;
+                        }
+
+                        statusIcon.innerText = isCompleted ? "Done" : "Pending";
+                        statusIcon.style.color = isCompleted ? "green" : "red";
+                        checkbox.checked = isCompleted;
+                    }
+
+                    function normalizeTime(time) {
+                        if (!time) return '';
+                        const [hours, minutes] = time.split(':').map(Number);
+                        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+                    }
+
+                    function saveHabitTracking(habitId, statusValue, timeValue, hoursValue, minutesValue, isCompleted, comments) {
+                        const trackingData = {
+                            habitId: habitId,
+                            statusValue: statusValue,
+                            statusTime: timeValue,
+                            hours: hoursValue,
+                            minutes: minutesValue,
+                            statusTick: isCompleted,
+                            statusCompletion: isCompleted ? "Done" : "Pending",
+                            date: selectedDate,
+                            comments: comments
+                        };
+
+                        fetch(`http://localhost:8080/api/habitTracking/${selectedDate}`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(trackingData)
+                        })
+                            .then(response => {
+                                if (response.ok) {
+                                    alert("Habit tracking updated successfully!");
+                                } else {
+                                    return response.json().then(error => {
+                                        alert(`Failed to update habit tracking: ${JSON.stringify(error)}`);
+                                    });
+                                }
+                            })
+                            .catch(error => console.error("Error saving habit tracking:", error));
+                    }
+                });
+            </script>
+
+
+            <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+            <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+            <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+            <script src="../assets/js/sidebarmenu.js"></script>
+            <script src="../assets/js/app.min.js"></script>
+            <script src="../assets/js/dashboard.js"></script>
+            <script src="../assets/js/script.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habit Tracker</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/seodashlogo.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css">
+  <style>
+    .table-responsive {
+      margin-top: 20px;
+    }
+
+    .table {
+      width: 100%;
+    }
+
+    .table th,
+    .table td {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <h2>Habit Tracker</h2>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Today's Tracking</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+              <span class="hide-menu">COMPONENTS</span>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Target</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:file-text-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Create Habit</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">History</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:planet-3-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">All Habits</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./calender.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:calendar-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Calender</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+                <i class="ti ti-bell-ringing"></i>
+                <div class="notification bg-primary rounded-circle"></div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <!--  Header End -->
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title d-flex align-items-center gap-2 mb-2 pb-1">
+                Habit Tracker Report
+                <span>
+                  <iconify-icon icon="solar:question-circle-bold" class="fs-7 d-flex text-muted"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-success"
+                    data-bs-title="Locations"></iconify-icon>
+                </span>
+              </h5>
+              
+              <div class="d-flex align-items-center mb-3">
+                <div class="me-3">
+                  <label for="startDate" class="form-label">Start Date</label>
+                  <input type="date" id="startDate" class="form-control">
+                </div>
+                <div class="me-3">
+                  <label for="endDate" class="form-label">End Date</label>
+                  <input type="date" id="endDate" class="form-control">
+                </div>
+                <button id="downloadReport" class="btn btn-primary ms-auto">Download Report</button>
+              </div>
+              
+
+              <div class="table-responsive mt-2 pt-1">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Habit</th>
+                      <th>Total Days</th>
+                      <th>Goals Met</th>
+                      <th>Missed</th>
+                      <th>Percentage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <tbody id="habitTableBody"></tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Habit Progress</h5>
+                <div id="habitChart" style="min-height: 400px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const downloadButton = document.getElementById('downloadReport');
+
+  downloadButton.addEventListener('click', () => {
+    const table = document.querySelector('.table');
+    const rows = Array.from(table.querySelectorAll('tr'));
+    const csvContent = rows.map(row => {
+      const cells = Array.from(row.querySelectorAll('th, td')).map(cell => cell.textContent);
+      return cells.join(',');
+    }).join('\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'habit_tracker_report.csv');
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+});
+
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const startDateInput = document.getElementById('startDate');
+      const endDateInput = document.getElementById('endDate');
+
+      // Add event listeners to both date inputs
+      startDateInput.addEventListener('change', checkAndFetchData);
+      endDateInput.addEventListener('change', checkAndFetchData);
+
+      function checkAndFetchData() {
+        if (startDateInput.value && endDateInput.value) {
+          fetchHabitData();
+        }
+      }
+
+      async function fetchHabitData() {
+        try {
+          const startDate = startDateInput.value;
+          const endDate = endDateInput.value;
+
+          if (!startDate || !endDate) {
+            console.error('Please select both start and end dates.');
+            return;
+          }
+
+          const response = await fetch(`http://localhost:8080/api/habitTracking/stats?startDate=${startDate}&endDate=${endDate}`);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          updateHabitTable(data);
+        } catch (error) {
+          console.error('Error fetching habit data:', error);
+        }
+      }
+
+      function updateHabitTable(data) {
+        const tableBody = document.getElementById('habitTableBody');
+        tableBody.innerHTML = ''; // Clear existing rows
+
+        data.forEach(item => {
+          const percentage = (item.totalDays > 0) ? ((item.completedDays / item.totalDays) * 100).toFixed(2) : 0; // Calculate percentage
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${item.habitName}</td>
+            <td>${item.totalDays}</td>
+            <td>${item.completedDays}</td>
+            <td>${item.missedDays}</td>
+            <td>${percentage}%</td>
+          `;
+          tableBody.appendChild(row);
+        });
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let chart;
+      const startDateInput = document.getElementById('startDate');
+      const endDateInput = document.getElementById('endDate');
+
+      function initChart() {
+        const options = {
+          series: [{
+            data: []
+          }],
+          chart: {
+            type: 'bar',
+            height: 600,
+
+            events: {
+              dataPointSelection: function (event, chartContext, config) {
+                const habitName = config.w.config.xaxis.categories[config.dataPointIndex];
+                const startDate = startDateInput.value;
+                const endDate = endDateInput.value;
+                const url = `bar-click.html?habit=${encodeURIComponent(habitName)}&startDate=${startDate}&endDate=${endDate}`;
+                window.location.href = url;
+              }
+
+            },
+            animations: {
+              enabled: true,
+              easing: 'easeinout',
+              speed: 800,
+              animateGradually: {
+                enabled: true,
+                delay: 150
+              },
+              dynamicAnimation: {
+                enabled: true,
+                speed: 350
+              }
+            }
+          },
+          plotOptions: {
+            bar: {
+              horizontal: true,
+              borderRadius: 6,
+              dataLabels: {
+                position: 'center',
+              },
+              barHeight: '70%',
+            }
+          },
+          dataLabels: {
+            enabled: true,
+            textAnchor: 'middle',
+            style: {
+              fontSize: '18px',
+              fontWeight: 'bold',
+              colors: ['#fff']
+            },
+            formatter: function (val) {
+              return val.toFixed(1) + "%";
+            },
+            offsetX: 0
+          },
+          colors: ['#3FA2F6'],
+          xaxis: {
+            categories: [],
+            labels: {
+              formatter: function (val) {
+                return val.toFixed(0) + "%";
+              }
+            },
+            max: 100
+          },
+          yaxis: {
+            labels: {
+              style: {
+                colors: [],
+                fontSize: '14px',
+                fontWeight: 500,
+              },
+            }
+          },
+          title: {
+            text: 'Habit Completion Percentage',
+            align: 'center',
+            margin: 10,
+            offsetY: 0,
+            style: {
+              fontSize: '18px',
+              fontWeight: 'bold',
+              color: '#263238'
+            },
+          },
+          tooltip: {
+            theme: 'dark',
+            y: {
+              formatter: function (val) {
+                return val.toFixed(1) + "%";
+              }
+            }
+          },
+          grid: {
+            padding: {
+              top: 0,
+              right: 25,
+              bottom: 0,
+              left: 15
+            }
+          }
+        };
+
+        chart = new ApexCharts(document.querySelector("#habitChart"), options);
+        chart.render();
+      }
+
+      function updateChart() {
+        const tableBody = document.getElementById('habitTableBody');
+        const rows = tableBody.getElementsByTagName('tr');
+        const data = [];
+        const categories = [];
+
+        for (let row of rows) {
+          const habitName = row.cells[0].textContent;
+          const percentage = parseFloat(row.cells[4].textContent);
+          data.push(percentage);
+          categories.push(habitName);
+        }
+
+        if (chart) {
+          chart.updateOptions({
+            series: [{
+              data: data
+            }],
+            xaxis: {
+              categories: categories
+            }
+          });
+        } else {
+          initChart();
+        }
+      }
+
+      // Initial update
+      updateChart();
+
+      // Update chart when table data changes
+      const observer = new MutationObserver(updateChart);
+      observer.observe(document.getElementById('habitTableBody'), { childList: true, subtree: true });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+
+</body>
+
+</html>

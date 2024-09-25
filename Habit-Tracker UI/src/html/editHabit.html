@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habit Tracker</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/seodashlogo.png" />
+  <link rel="stylesheet" href="../../node_modules/simplebar/dist/simplebar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<body>
+ 
+      <div class="container-fluid">
+          <div class="card-body">
+            <div class="card">
+              <div class="card-body">
+                <form id="editHabitForm">
+                  <div class="mb-3">
+                    <label for="habitName" class="form-label">Habit Name</label>
+                    <input type="text" class="form-control" id="habitName" name="habit-name">
+                    <div id="habitHelp" class="form-text">Create a new custom habit</div>
+
+                  </div>
+                  <div class="mb-3">
+                    <label for="startDate" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" id="startDate">
+                  </div>
+
+                  <!-- Do At Section -->
+                  <div class="mb-3">
+                    <label for="doAt" class="form-label">Do At</label>
+                    <div class="button-group">
+                      <button type="button" id="morning" class="btn btn-outline-danger m-1"
+                        onclick="toggleOption(this, 'Morning')">Morning</button>
+                      <button type="button" id="afternoon" class="btn btn-outline-danger m-1"
+                        onclick="toggleOption(this, 'Afternoon')">Afternoon</button>
+                      <button type="button" id="evening" class="btn btn-outline-danger m-1"
+                        onclick="toggleOption(this, 'Evening')">Evening</button>
+                      <button type="button" id="night" class="btn btn-outline-danger m-1"
+                        onclick="toggleOption(this, 'Night')">Night</button>
+                    </div>
+                    <input type="hidden" id="doAt" name="doAt">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="frequency" class="form-label">Frequency</label>
+                    <div class="button-group">
+                      <button type="button" class="btn btn-warning m-1" onclick="showDaysOrMonths('Days')">Days</button>
+                      <button type="button" class="btn btn-warning m-1"
+                        onclick="showDaysOrMonths('Weeks')">Weeks</button>
+                      <button type="button" class="btn btn-warning m-1"
+                        onclick="showDaysOrMonths('Months')">Months</button>
+                    </div>
+                  </div>
+
+                  <!-- Hidden Tabs -->
+                  <div id="daysTab" class="hidden-tab mb-3">
+                    <h5>Select Days</h5>
+                    <div style="display: grid; grid-template-columns: repeat(2, auto); gap: 10px;">
+                      <div>
+                        <input type="checkbox" id="monday" name="days" value="Everyday" class="form-check-input">
+                        <label for="everyday">Everyday</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="monday" name="days" value="MONDAY" class="form-check-input">
+                        <label for="monday">Monday</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="tuesday" name="days" value="TUESDAY" class="form-check-input">
+                        <label for="tuesday">Tuesday</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="wednesday" name="days" value="WEDNESDAY" class="form-check-input">
+                        <label for="wednesday">Wednesday</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="thursday" name="days" value="THURSDAY" class="form-check-input">
+                        <label for="thursday">Thursday</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="friday" name="days" value="FRIDAY" class="form-check-input">
+                        <label for="friday">Friday</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="saturday" name="days" value="SATURDAY" class="form-check-input">
+                        <label for="saturday">Saturday</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="sunday" name="days" value="SUNDAY" class="form-check-input">
+                        <label for="sunday">Sunday</label>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!-- Hidden Tabs -->
+                  <div id="weeksTab" class="hidden-tab mb-3">
+                    <h5>Select Frequency</h5>
+                    <div style="display: grid; grid-template-columns: repeat(2, auto); gap: 10px;">
+                      <div>
+                        <input type="checkbox" id="once" name="week" value="ONCE" class="form-check-input">
+                        <label for="once">Once</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="twice" name="week" value="TWICE" class="form-check-input">
+                        <label for="twice">Twice</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="thrice" name="week" value="THRICE" class="form-check-input">
+                        <label for="thrice">Thrice</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="fourth" name="week" value="FOURTH" class="form-check-input">
+                        <label for="fourth">Fourth</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="fifth" name="week" value="FIFTH" class="form-check-input">
+                        <label for="fifth">Fifth</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="sixth" name="week" value="SIXTH" class="form-check-input">
+                        <label for="sixth">Sixth</label>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div id="monthsTab" class="hidden-tab mb-3">
+                    <h5>Select Months</h5>
+                    <div style="display: grid; grid-template-columns: repeat(2, auto); gap: 10px;">
+                      <div>
+                        <input type="checkbox" id="january" name="months" value="JANUARY" class="form-check-input">
+                        <label for="january">January</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="february" name="months" value="FEBRUARY" class="form-check-input">
+                        <label for="february">February</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="march" name="months" value="MARCH" class="form-check-input">
+                        <label for="march">March</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="april" name="months" value="APRIL" class="form-check-input">
+                        <label for="april">April</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="may" name="months" value="MAY" class="form-check-input">
+                        <label for="may">May</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="june" name="months" value="JUNE" class="form-check-input">
+                        <label for="june">June</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="july" name="months" value="JULY" class="form-check-input">
+                        <label for="july">July</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="august" name="months" value="AUGUST" class="form-check-input">
+                        <label for="august">August</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="september" name="months" value="SEPTEMBER" class="form-check-input">
+                        <label for="september">September</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="october" name="months" value="OCTOBER" class="form-check-input">
+                        <label for="october">October</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="november" name="months" value="NOVEMBER" class="form-check-input">
+                        <label for="november">November</label>
+                      </div>
+                      <div>
+                        <input type="checkbox" id="december" name="months" value="DECEMBER" class="form-check-input">
+                        <label for="december">December</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Time -->
+                  <div class="mb-3">
+                    <label for="timeInput" class="form-label">Time</label>
+                    <input type="time" class="form-control" id="timeInput" name="timeInput">
+                    <div id="trackHelp" class="form-text">Select the time duration you want to track in hours and
+                      minutes.</div>
+                  </div>
+
+                  <!-- Track In Dropdown -->
+                  <div class="mb-3">
+                    <label for="trackIn" class="form-label">Track In</label>
+                    <select class="form-control" id="trackIn" name="trackIn" onchange="handleTrackInChange()">
+                      <option value="">Select an option</option>
+                      <option value="Duration">Duration</option>
+                      <option value="Cups">Cups</option>
+                      <option value="Litres">Litres</option>
+                      <option value="Steps">Steps</option>
+                      <option value="Customize">Customize</option>
+                    </select>
+                    <div id="trackHelp" class="form-text">Select parameters you want to track in</div>
+                  </div>
+
+                  <!-- Time Input Fields (hidden by default) -->
+                  <div class="mb-3" id="timeContainer" style="display: none;">
+                    <div style="display: flex; align-items: center;">
+                      <div style="margin-right: 50px;">
+                        <label for="hoursInput" class="form-label">Hours</label>
+                        <input type="number" class="form-control" id="hoursInput" name="hoursInput" min="0" max="23"
+                          placeholder="Enter hours" style="width: 150px;">
+                        <div id="hoursHelp" class="form-text">Enter hours (0 to 23).</div>
+                      </div>
+
+                      <div>
+                        <label for="minutesInput" class="form-label">Minutes</label>
+                        <input type="number" class="form-control" id="minutesInput" name="minutesInput" min="0" max="59"
+                          placeholder="Enter minutes">
+                        <div id="minutesHelp" class="form-text">Enter minutes (0 to 59).</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Value Input Field (hidden by default) -->
+                  <div class="mb-3" id="valueContainer" style="display: none;">
+                    <label for="value" class="form-label">Value</label>
+                    <input type="text" class="form-control" id="value" placeholder="Enter value">
+                    <div id="valueHelp" class="form-text">Enter the value based on the selected parameter.</div>
+                  </div>
+
+                  <!-- Customize Input Fields (hidden by default) -->
+                  <div class="mb-3" id="customizeContainer" style="display: none;">
+                    <label for="customParam" class="form-label">Custom Parameter</label>
+                    <input type="text" class="form-control" id="customParam" placeholder="Enter custom parameter">
+                    <label for="customValue" class="form-label">Custom Value</label>
+                    <input type="text" class="form-control" id="customValue"
+                      placeholder="Enter value for custom parameter">
+                  </div>
+
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="reminder">
+                    <label class="form-check-label" for="reminder">Reminder</label>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>

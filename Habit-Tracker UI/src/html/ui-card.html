@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habit Tracker</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/seodashlogo.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<body>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <aside class="left-sidebar">
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <h2>Habit Tracker</h2>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Today's Tracking</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+              <span class="hide-menu">COMPONENTS</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Target</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:file-text-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Create Habit</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">History</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:planet-3-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">All Habits</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./calender.html" aria-expanded="false">
+                <span>
+                  <iconify-icon  icon="solar:calendar-bold-duotone"  class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Calender</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>      
+          </ul> 
+        </nav>
+      </header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <h5 class="card-title fw-semibold mb-4">Habits</h5>
+                <div class="card">
+                  <img src="../assets/images/products/todo.webp" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Essential</h5>
+                    <p class="card-text">Focus on the essential elements that matter most to you. Prioritize and organize your life to achieve clarity and purpose. Must have habits.</p>
+                    <a href="essentialHabitList.html" class="btn btn-primary">See Habits</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <h5 class="card-title fw-semibold mb-4">Habits</h5>
+                <div class="card">
+                  <img src="../assets/images/products/exercise.webp" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Exercise</h5>
+                    <p class="card-text">Stay active with a variety of exercises that suit your fitness level. From beginner routines to advanced workouts, find the right balance for a healthy body.</p>
+                    <a href="exerciseHabitList.html" class="btn btn-primary">See Habits</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <h5 class="card-title fw-semibold mb-4">Habits</h5>
+                <div class="card">
+                  <img src="../assets/images/products/healthy.avif" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Healthy Lifestyle</h5>
+                    <p class="card-text">Adopt habits that promote a balanced, nutritious diet and overall well-being. Discover tips and techniques to live a healthier and happier life.</p>
+                    <a href="healthyHabitList.html" class="btn btn-primary">See Habits</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <h5 class="card-title fw-semibold mb-4">Habits</h5>
+                <div class="card">
+                  <img src="../assets/images/products/relationship.jfif" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Relationship</h5>
+                    <p class="card-text">Build and nurture meaningful connections with loved ones. Learn strategies to improve communication, deepen bonds, and create lasting relationships.</p>
+                    <a href="relationshipHabitList.html" class="btn btn-primary">See Habits</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <h5 class="card-title fw-semibold mb-4">Habits</h5>
+                <div class="card">
+                  <img src="../assets/images/products/stressFree.jpeg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Relieve Pressure</h5>
+                    <p class="card-text">Manage stress effectively with proven relaxation techniques and mindfulness practices. Find peace and tranquility in your daily routine.</p>
+                    <a href="relievePressureList.html" class="btn btn-primary">See Habits</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <h5 class="card-title fw-semibold mb-4">Habits</h5>
+                <div class="card">
+                  <img src="../assets/images/products/customization.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    
+                    <h5 class="card-title">Customize</h5>
+                    <p class="card-text">Create a personalized plan that fits your unique lifestyle and goals. Tailor your daily habits and activities to achieve the results you want.</p>
+                    <a href="ui-forms.html" class="btn btn-primary">Create your own habits</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>

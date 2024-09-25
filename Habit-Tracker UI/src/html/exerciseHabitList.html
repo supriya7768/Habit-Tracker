@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habit Tracker</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/seodashlogo.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<body>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <aside class="left-sidebar">
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <h2>Habit Tracker</h2>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Today's Tracking</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+              <span class="hide-menu">COMPONENTS</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Target</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:file-text-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Create Habit</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">History</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:planet-3-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">All Habits</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./calender.html" aria-expanded="false">
+                <span>
+                  <iconify-icon  icon="solar:calendar-bold-duotone"  class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Calender</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+    
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+        
+        </nav>
+      </header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Habits for exercise</h5>
+              <div class="table-responsive">
+                <table class="table text-nowrap align-middle mb-0">
+                  <thead>
+                    <tr class="border-2 border-bottom border-primary border-0"> 
+                      <th scope="col" class="ps-0">Develop Habits In</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-group-divider">
+                    <tr>
+                        <th scope="row" class="ps-0 fw-medium">
+                          <div class="d-flex align-items-center">
+                            <!-- Icon -->
+                            <img src="../assets/images/logos/exercise.png" alt="Icon" class="me-2" style="width: 6%;" />
+                            <!-- Text -->
+                            <span class="table-link1 text-truncate">
+                              <a href="ui-forms.html?habit=Daily%20Exercise"> <h3 class="m-7">Daily Exercise</h3></a>
+                            </span>
+                            <span class="dot-time ms-auto" style="font-size: 20px; color:#EB5B00">
+                              • Move Daily: 2 Hours Minimum
+                            </span>
+                          </div>
+                        </th>
+                      </tr>
+                     
+                      <tr>
+                        <th scope="row" class="ps-0 fw-medium">
+                          <div class="d-flex align-items-center">
+                            <img src="../assets/images/logos/yoga-pose.png" alt="Icon" class="me-2" style="width: 6%;" />
+                            <span class="table-link1 text-truncate">
+                              <a href="ui-forms.html?habit=Practise%20Yoga">
+                                <h3 class="m-7">Practise Yoga</h3>
+                              </a>
+                            </span>
+                            <span class="dot-time ms-auto" style="font-size: 20px; color:#EB5B00">
+                              • Find Balance with Daily Yoga
+                            </span>
+                          </div>
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="row" class="ps-0 fw-medium">
+                          <div class="d-flex align-items-center">
+                            <!-- Icon -->
+                            <img src="../assets/images/logos/gym.png" alt="Icon" class="me-2" style="width: 6%;" />
+                            <!-- Text -->
+                            <span class="table-link1 text-truncate">
+                              <a href="ui-forms.html?habit=Go%20to%20gym">
+                                <h3 class="m-7">Go to gym</h3>
+                              </a>
+                            </span>
+                            <span class="dot-time ms-auto" style="font-size: 20px; color:#EB5B00">
+                              • Hit the Gym Regularly
+                            </span>
+                          </div>
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="row" class="ps-0 fw-medium">
+                          <div class="d-flex align-items-center">
+                            <!-- Icon -->
+                            <img src="../assets/images/logos/person.png" alt="Icon" class="me-2" style="width: 6%;" />
+                            <!-- Text -->
+                            <span class="table-link1 text-truncate">
+                              <a href="ui-forms.html?habit=Go%20for%20walk">
+                                <h3 class="m-7">Go for walk</h3>
+                              </a>
+                            </span>
+                            <span class="dot-time ms-auto" style="font-size: 20px; color:#EB5B00">
+                              • Refresh with a Walk Every Day
+                            </span>
+                          </div>
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th scope="row" class="ps-0 fw-medium">
+                          <div class="d-flex align-items-center">
+                            <!-- Icon -->
+                            <img src="../assets/images/logos/meditation.png" alt="Icon" class="me-2" style="width: 6%;" />
+                            <!-- Text -->
+                            <span class="table-link1 text-truncate">
+                              <a href="ui-forms.html?habit=Do%20meditation">
+                                <h3 class="m-7">Do meditation</h3>
+                              </a>
+                            </span>
+                            <span class="dot-time ms-auto" style="font-size: 20px; color:#EB5B00">
+                              • Embrace a Daily Meditation Routine
+                            </span>
+                          </div>
+                        </th>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>
